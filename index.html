@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title id="title">Burp Practice Site</title>
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+background-size:cover;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="homeTitle">Welcome</h1>
+
+<button onclick="location='login.html'">Login</button>
+
+<script>
+let t = localStorage.getItem("title")
+let bg = localStorage.getItem("bg")
+
+if(t) document.getElementById("homeTitle").innerText = t
+if(bg) document.body.style.backgroundImage = `url('${bg}')`
+</script>
+
+</body>
+</html>

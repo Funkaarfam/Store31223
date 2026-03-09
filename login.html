@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+
+<body>
+
+<h2>Login</h2>
+
+<input id="username" placeholder="username"><br><br>
+<input id="password" type="password" placeholder="password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<script>
+
+async function login(){
+
+let username = document.getElementById("username").value
+let password = document.getElementById("password").value
+
+let res = await fetch("/api/login",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({username,password})
+})
+
+let data = await res.json()
+
+if(data.success){
+location="dashboard.html"
+}else{
+alert("Login failed")
+}
+
+}
+
+</script>
+
+</body>
+</html>
