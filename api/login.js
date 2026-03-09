@@ -1,32 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Dashboard</title>
-</head>
+export default function handler(req, res) {
 
-<body>
-
-<h1>Dashboard</h1>
-
-<input id="titleInput" placeholder="Homepage Title"><br><br>
-<input id="bgInput" placeholder="Background Image URL"><br><br>
-
-<button onclick="save()">Save</button>
-
-<script>
-
-function save(){
-
-let t = document.getElementById("titleInput").value
-let bg = document.getElementById("bgInput").value
-
-localStorage.setItem("title",t)
-localStorage.setItem("bg",bg)
-
-alert("Saved!")
+if(req.method !== "POST"){
+return res.status(405).json({error:"Method not allowed"})
 }
 
-</script>
+const {username,password} = req.body
 
-</body>
-</html>
+// simple test login
+if(username === "admin" && password === "password123"){
+return res.json({success:true})
+}
+
+res.json({success:false})
+
+}
