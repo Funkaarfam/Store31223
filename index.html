@@ -1,29 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title id="title">Burp Practice Site</title>
+
+<title id="siteTitle">My Practice Site</title>
 
 <style>
+
 body{
 font-family:Arial;
-text-align:center;
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#111;
+color:white;
 background-size:cover;
+background-position:center;
 }
+
+.container{
+text-align:center;
+background:rgba(0,0,0,0.6);
+padding:40px;
+border-radius:10px;
+}
+
+button{
+padding:12px 25px;
+font-size:16px;
+border:none;
+background:#4CAF50;
+color:white;
+cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+background:#45a049;
+}
+
 </style>
+
 </head>
 
-<body>
+<body id="body">
 
-<h1 id="homeTitle">Welcome</h1>
+<div class="container">
 
-<button onclick="location='login.html'">Login</button>
+<h1 id="homeTitle">Welcome to My Website</h1>
+
+<br>
+
+<button onclick="location.href='login.html'">Login</button>
+
+</div>
 
 <script>
-let t = localStorage.getItem("title")
-let bg = localStorage.getItem("bg")
 
-if(t) document.getElementById("homeTitle").innerText = t
-if(bg) document.body.style.backgroundImage = `url('${bg}')`
+let savedTitle = localStorage.getItem("title")
+let savedBg = localStorage.getItem("bg")
+
+if(savedTitle){
+document.getElementById("homeTitle").innerText = savedTitle
+}
+
+if(savedBg){
+document.body.style.backgroundImage = `url('${savedBg}')`
+}
+
 </script>
 
 </body>
