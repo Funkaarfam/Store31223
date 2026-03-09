@@ -1,29 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#111827;
+color:white;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.panel{
+background:#1f2937;
+padding:40px;
+border-radius:10px;
+width:400px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:6px;
+border:none;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#22c55e;
+border:none;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Dashboard</h1>
+<div class="panel">
 
-<input id="titleInput" placeholder="Homepage Title"><br><br>
-<input id="bgInput" placeholder="Background Image URL"><br><br>
+<h2>Dashboard</h2>
 
-<button onclick="save()">Save</button>
+<label>Homepage Title</label>
+<input id="titleInput" placeholder="New title">
+
+<label>Background Image URL</label>
+<input id="bgInput" placeholder="Image URL">
+
+<button onclick="save()">Save Changes</button>
+
+</div>
 
 <script>
 
 function save(){
 
-let t = document.getElementById("titleInput").value
-let bg = document.getElementById("bgInput").value
+let title=document.getElementById("titleInput").value
+let bg=document.getElementById("bgInput").value
 
-localStorage.setItem("title",t)
+localStorage.setItem("title",title)
 localStorage.setItem("bg",bg)
 
-alert("Saved!")
+alert("Saved! Refresh homepage.")
+
 }
 
 </script>
